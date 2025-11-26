@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerLvl1 : MonoBehaviour
 {
@@ -7,10 +8,21 @@ public class PlayerControllerLvl1 : MonoBehaviour
 
     public float raioDeAtaque = 1.0f;
     public LayerMask layerInimigo;
+    public string proximaCena = "Level2";
+    public TMPro.TextMeshProUGUI killCountText;
+    public int mortesVitoria = 10;
+    int numeroMortes = 0;
+
 
     void Start()
     {
         corpoJogador = GetComponent<Rigidbody2D>();
+
+        // mostra numero de mortes 0/10 no inicio
+        if (killCountText != null )
+        {
+            killCountText.text = numeroMortes.ToString() + " / " + mortesVitoria.ToString();
+        }
     }
 
     void Update()
@@ -52,6 +64,7 @@ public class PlayerControllerLvl1 : MonoBehaviour
         foreach (Collider2D inimigo in inimigosAtingidos)
         {
             Destroy(inimigo.gameObject);
+            ContarMorte();
         }
     }
 
@@ -63,5 +76,21 @@ public class PlayerControllerLvl1 : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(transform.position, raioDeAtaque);
+    }
+
+    public void ContarMorte()
+    {
+        numeroMortes++;
+
+        if (killCountText != null)
+        {
+            killCountText.text = numeroMortes.ToString() + " / " + mortesVitoria.ToString();
+        }
+
+        if (numeroMortes >= mortesVitoria)
+        {
+            // carregar cena
+            SceneManager.LoadScene(proximaCena);
+        }
     }
 }
