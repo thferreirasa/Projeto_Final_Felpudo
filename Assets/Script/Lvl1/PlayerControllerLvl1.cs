@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerControllerLvl1 : MonoBehaviour
@@ -13,13 +13,15 @@ public class PlayerControllerLvl1 : MonoBehaviour
     public int mortesVitoria = 10;
     int numeroMortes = 0;
 
+    private Animator animator;
+
 
     void Start()
     {
         corpoJogador = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
-        // mostra numero de mortes 0/10 no inicio
-        if (killCountText != null )
+        if (killCountText != null)
         {
             killCountText.text = numeroMortes.ToString() + " / " + mortesVitoria.ToString();
         }
@@ -27,7 +29,6 @@ public class PlayerControllerLvl1 : MonoBehaviour
 
     void Update()
     {
-        // tecla E ataca
         if (Input.GetKeyDown(KeyCode.E))
         {
             Atacar();
@@ -44,14 +45,17 @@ public class PlayerControllerLvl1 : MonoBehaviour
                 GameManagerLvl1.instance.PerdeVida();
             }
 
-            // destroi o inimigo
             Destroy(other.gameObject);
         }
     }
 
     void Atacar()
     {
-        // animacao de ataque
+        // animacao de ataque do jogador
+        if (animator != null)
+        {
+            animator.SetTrigger("Atacar");
+        }
 
         // usa o raio de ataque
         Collider2D[] inimigosAtingidos = Physics2D.OverlapCircleAll(
@@ -63,7 +67,19 @@ public class PlayerControllerLvl1 : MonoBehaviour
         // mata inimigo
         foreach (Collider2D inimigo in inimigosAtingidos)
         {
-            Destroy(inimigo.gameObject);
+            Animator inimigoAnimator = inimigo.GetComponent<Animator>();
+
+            if (inimigoAnimator != null)
+            {
+                inimigoAnimator.SetTrigger("Derrota");
+
+                Destroy(inimigo.gameObject, 0.3f);
+            }
+            else
+            {
+                Destroy(inimigo.gameObject);
+            }
+
             ContarMorte();
         }
     }

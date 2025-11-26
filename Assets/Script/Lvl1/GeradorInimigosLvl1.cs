@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +8,10 @@ public class GeradorInimigosLvl1 : MonoBehaviour
     public GameObject inimigoPrefab;
     public float intervalo = 3f;
 
-    // Limite de spawn no eixo X (à direita da tela)
+    // Limite de spawn no eixo X (Ã  direita da tela)
     public float limiteX = 8f;
 
-    // Posição y fixa
+    // PosiÃ§Ã£o y fixa
     public float yFixo = -1.69f;
 
     // Velocidade de movimento dos inimigos
@@ -27,7 +27,7 @@ public class GeradorInimigosLvl1 : MonoBehaviour
 
     void GerarInimigo()
     {
-        // define posição de spawn
+        // define posiÃ§Ã£o de spawn
         float x = limiteX;
 
         // valor fixo de Y
@@ -38,24 +38,24 @@ public class GeradorInimigosLvl1 : MonoBehaviour
         // Instancia o inimigo
         GameObject inimigo = Instantiate(inimigoPrefab, posicaoSpawn, Quaternion.identity);
 
-        // Inicia o movimento automático (corrotina)
         StartCoroutine(MoverInimigo(inimigo));
     }
 
     IEnumerator MoverInimigo(GameObject inimigo)
     {
+        // Enquanto o objeto existir
         while (inimigo != null)
         {
             // Move o inimigo da direita para a esquerda
             inimigo.transform.Translate(Vector2.left * velocidade * Time.deltaTime);
 
-            // Se o inimigo sair do limite visível, destrói o objeto
+            // Se o inimigo sair do limite visÃ­vel, destrÃ³i o objeto
             if (inimigo.transform.position.x < limiteDestruicaoX)
             {
                 Destroy(inimigo);
                 yield break; // Sai da corrotina
             }
-            yield return null; // Espera o próximo frame
+            yield return null; // Espera o prÃ³ximo frame
         }
     }
 }
