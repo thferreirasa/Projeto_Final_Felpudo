@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ControlaJogadorFlutuante : MonoBehaviour
+public class PlayerControllerLvl3 : MonoBehaviour
 {
     bool comecou;
     Rigidbody2D corpoJogador;
