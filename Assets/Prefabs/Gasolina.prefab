@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6868628030270780545}
   - component: {fileID: 5650071546670883930}
   - component: {fileID: 3163040279808637217}
+  - component: {fileID: 5288409800968198102}
   m_Layer: 0
   m_Name: Gasolina
   m_TagString: Untagged
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.35, y: 1.12}
   m_EdgeRadius: 0
+--- !u!114 &5288409800968198102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118603378706722307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940ccf5c2c8cabb408ab69d9cc749d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valorGasolina: 25
