@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863fefc67e4fcde4fa867f9fd45a868c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeMovimento: 5
+  velocidadeMovimento: 10
 --- !u!50 &173388459
 Rigidbody2D:
   serializedVersion: 4
@@ -424,7 +424,7 @@ MonoBehaviour:
   intervalo: 4
   limiteX: 8
   limiteY: 4
-  velocidade: 3
+  velocidade: 7
   limiteDestruicaoX: -12
 --- !u!4 &182229263
 Transform:
@@ -838,7 +838,7 @@ MonoBehaviour:
   intervalo: 3
   limiteX: 8
   limiteY: 4
-  velocidade: 3
+  velocidade: 13
   limiteDestruicaoX: -12
 --- !u!4 &972751833
 Transform:
