@@ -6,6 +6,8 @@ public class GeradorInimigosLvl1 : MonoBehaviour
 {
     // prefab do inimigo
     public GameObject inimigoPrefab;
+
+    public float atrasoInicial = 0f;
     public float intervalo = 3f;
 
     // Limite de spawn no eixo X (à direita da tela)
@@ -22,7 +24,7 @@ public class GeradorInimigosLvl1 : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("GerarInimigo", 0f, intervalo);
+        InvokeRepeating("GerarInimigo", atrasoInicial, intervalo);
     }
 
     void GerarInimigo()
