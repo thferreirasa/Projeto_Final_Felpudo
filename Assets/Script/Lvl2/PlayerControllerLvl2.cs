@@ -12,6 +12,7 @@ public class PlayerControllerLvl2 : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         corpoJogador = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -27,6 +28,12 @@ public class PlayerControllerLvl2 : MonoBehaviour
                 comecou = true;
                 corpoJogador.isKinematic = false;
             }
+
+            if (animator != null)
+            {
+                animator.SetTrigger("Pular");
+            }
+
             corpoJogador.velocity = new Vector2(0, 0);
             corpoJogador.AddForce(forcaImpulso);
         }

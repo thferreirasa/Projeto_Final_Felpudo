@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940ccf5c2c8cabb408ab69d9cc749d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorGasolina: 25
+  valorGasolina: 10
