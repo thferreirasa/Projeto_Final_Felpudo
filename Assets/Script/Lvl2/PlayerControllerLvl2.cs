@@ -38,4 +38,18 @@ public class PlayerControllerLvl2 : MonoBehaviour
             corpoJogador.AddForce(forcaImpulso);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // colisao com inimigos
+        if (other.CompareTag("Enemy"))
+        {
+            if (GameManagerLvl2.instance != null)
+            {
+                GameManagerLvl2.instance.PerdeVida();
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
 }
