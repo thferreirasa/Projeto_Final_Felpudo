@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("FirstScene");
+        SceneManager.LoadScene("Lvl1_Instructions");
     }
 
     public void ExitGame()
@@ -21,21 +21,21 @@ public class MainMenu : MonoBehaviour
 
     public void Level1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Lvl1_Instructions");
     }
 
     public void Level2()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Lvl2_Instructions");
     }
 
     public void Level3()
     {
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene("Lvl3_Instructions");
     }
 
     public void Level4()
     {
-        SceneManager.LoadScene("Level4");
+        SceneManager.LoadScene("Lvl4_Instructions");
     }
 }

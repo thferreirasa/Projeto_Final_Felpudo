@@ -8,7 +8,7 @@ public class PlayerControllerLvl1 : MonoBehaviour
 
     public float raioDeAtaque = 1.0f;
     public LayerMask layerInimigo;
-    public string proximaCena = "Level2";
+    public string proximaCena = "Lvl2_Instructions";
     public TMPro.TextMeshProUGUI killCountText;
     public int mortesVitoria = 10;
     int numeroMortes = 0;

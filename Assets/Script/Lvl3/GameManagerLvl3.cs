@@ -13,7 +13,7 @@ public class GameManagerLvl3 : MonoBehaviour
     public int vidas = 3;
     public int frutasColetadas = 0;
     public int frutasVitoria = 5;
-    public string proximaCena = "Level4";
+    public string proximaCena = "Lvl4_Instructions";
     public Image[] iconesVida;
     public TextMeshProUGUI contadorFrutasTexto;
 

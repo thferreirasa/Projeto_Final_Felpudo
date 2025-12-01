@@ -12,7 +12,7 @@ public class GameManagerLvl2 : MonoBehaviour
     public static GameManagerLvl2 instance;
 
     public int vidas = 3;
-    public string proximaCena = "Level3";
+    public string proximaCena = "Lvl3_Instructions";
     public Image[] iconesVida;
 
     public Image gasolinaBarra;

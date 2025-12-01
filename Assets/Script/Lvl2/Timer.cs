@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     public Color warningColor = Color.red;
     public float warningTime = 10f;
 
-    public string proximaCena = "Level3";
+    public string proximaCena = "Lvl3_Instructions";
 
     private bool isGameOver = false;
 
