@@ -7,17 +7,40 @@ public class UrucaController : MonoBehaviour
     public int vidaAtual = 3;
     private Animator animator;
 
+    public Transform alvo;
+    public float velocidade;
+    private Rigidbody2D corpoUruca;
+
     // Start is called before the first frame update
     void Start()
     {
+        corpoUruca = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direcao = (alvo.position - transform.position).normalized;
+
+        direcao.y = 0;
+
+        corpoUruca.velocity = direcao * velocidade;
+
+        // giro
+        if (corpoUruca.velocity.x > 0.1f)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        } else if (corpoUruca.velocity.x < -.1f)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     public void TomarDano(int dano)
     {
         vidaAtual -= dano;
 
-        if (vidaAtual < 0)
+        if (vidaAtual <= 0)
         {
             Morrer();
         }
@@ -34,8 +57,22 @@ public class UrucaController : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<UrucaController>().enabled = false;
 
-        Destroy(gameObject, 0.5f);
+        if (GameManagerLvl4.instance != null)
+        {
+            GameManagerLvl4.instance.GameVictory();
+        }
 
-        // chamar tela de vitoria/cinematic
+        Destroy(gameObject, 0.5f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (GameManagerLvl4.instance != null)
+            {
+                GameManagerLvl4.instance.PerdeVida();
+            }
+        }
     }
 }
